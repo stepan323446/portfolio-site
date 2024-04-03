@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
 export default {
     name: "VueTyping",
 
@@ -32,21 +33,20 @@ export default {
 
                 for (let i = 0; i < curWord.length; i++) {
                     this.currentText = curWord.substring(0, i + 1);
-                    console.log(this.currentText);
 
-                    await this.sleep(this.sleepTime)
+                    await this.sleep(this.sleepTime);
                 }
                 await this.sleep(this.sleepTime * 10);
 
                 for (let i = curWord.length; i > 0; i--) {
                     this.currentText = curWord.substring(0, i - 1);
 
-                    await this.sleep(this.sleepTime)
+                    await this.sleep(this.sleepTime);
                 }
                 await this.sleep(this.sleepTime * 5);
 
-                if (this.wordIndex == this.$props.length - 1)
-                    this.wordIndex = 0
+                if (this.wordIndex == this.$props.lines.length - 1)
+                    this.wordIndex = 0;
                 else
                     this.wordIndex++;
             }
