@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header__inner">
             <div class="header-title">
-                Stepan-Turitsin
+                stepan-turitsin
             </div>
             <nav class="header-nav">
                 <ul>
