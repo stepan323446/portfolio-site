@@ -74,6 +74,19 @@ export default {
     width: 100%;
     height: calc(100% - 39px);
     padding: 20px 40px;
+    overflow: auto;
+}
+.content::-webkit-scrollbar {
+    width: 20px;
+    padding: 3px;
+    background-color: transparent;
+    border-left: 2px solid var(--borders-color);
+}
+.content::-webkit-scrollbar-thumb {
+    background-color: var(--text-color);
+    background-clip: padding-box;
+    border: 5px solid transparent;
+    outline: 0;
 }
 .content-split {
     display: flex;

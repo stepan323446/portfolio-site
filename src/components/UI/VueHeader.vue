@@ -10,7 +10,9 @@
                         <RouterLink :to="{name: 'index'}">_hello</RouterLink>
                     </li>
                     <li>
-                        <RouterLink :to="{name: 'about'}">_about-me</RouterLink>
+                        <RouterLink :to="{name: 'about', params: {slug: 'bio'}}" :class="{
+                            'active': $route.name == 'about'
+                        }">_about-me</RouterLink>
                     </li>
                     <li>
                         <RouterLink :to="{name: 'projects'}">_projects</RouterLink>
@@ -74,11 +76,13 @@ footer a {
     border-left: 2px solid var(--borders-color);
 }
 
-.header a.router-link-active {
+.header a.router-link-active,
+.header a.active {
     color: var(--active-text-color);
 }
 
-.header a.router-link-active::before {
+.header a.router-link-active::before,
+.header a.active::before {
     content: '';
     position: absolute;
 

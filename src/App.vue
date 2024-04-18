@@ -111,7 +111,10 @@ body {
 .page {
     height: calc(100vh - 53px - 50px);
 }
-
+.inside-block {
+    background: var(--input-background-color);
+    border-radius: 15px;
+}
 .hljs {
     font-weight: 500;
     line-height: 1.6;
