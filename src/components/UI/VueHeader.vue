@@ -15,7 +15,9 @@
                         }">_about-me</RouterLink>
                     </li>
                     <li>
-                        <RouterLink :to="{name: 'projects'}">_projects</RouterLink>
+                        <RouterLink :to="{name: 'projects'}" :class="{
+                            'active': $route.name == 'project-single'
+                        }">_projects</RouterLink>
                     </li>
                     <li>
                         <RouterLink :to="{name: 'contact'}">_contact-me</RouterLink>

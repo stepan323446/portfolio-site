@@ -7,8 +7,16 @@
             <div class="page-title">
                 {{ title }}
             </div>
-            <div class="content">
+            <div class="content" v-if="!hasSeparate">
                 <slot></slot>
+            </div>
+            <div class="content content-split" v-else>
+                <div class="left scrollbar scrollbar-always">
+                    <slot name="leftContent"></slot>
+                </div>
+                <div class="right scrollbar scrollbar-always">
+                    <slot name="rightContent"></slot>
+                </div>
             </div>
         </div>
     </div>
@@ -21,13 +29,18 @@ export default {
         title: {
             type: String,
             required: true
+        },
+        hasSeparate: {
+            type: Boolean,
+            required: false,
+            default: false
         }
     }
 }
 </script>
 
 <style scoped>
-    .sidebar {
+.sidebar {
     width: var(--sidebar-header-width);
     height: 100%;
     border-right: 2px solid var(--borders-color);
@@ -99,5 +112,43 @@ export default {
 }
 .content > .left {
     border-right: 2px solid var(--borders-color);
+}
+@media only screen and (max-width: 1200px) {
+    .content-page {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+    .sidebar-dropdown-btn {
+        background: #1E2D3D;
+    }
+    .page-title {
+        border: 2px solid var(--borders-color);
+    }
+    .content {
+        height: auto;
+        padding: 20px 10px;
+    }
+    .scrollbar::-webkit-scrollbar {
+        width: 0;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+@media only screen and (max-width: 715px) {
+    .projects {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 30px;
+    }
+    .content-split > .left,
+    .content-split > .right {
+        padding: 20px 14px;
+    }
 }
 </style>

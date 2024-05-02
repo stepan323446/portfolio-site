@@ -3,8 +3,9 @@ import IndexView from '@/views/Index'
 import ProjectsView from '@/views/Projects'
 import ContactView from '@/views/Contact'
 import AboutView from '@/views/About.vue'
+import SingleProjectView from '@/views/Project.vue'
 
-const titleConst = " - Stepan Turitsin";
+export const titleConst = " - Stepan Turitsin";
 const routes = [
   {
     path: '/',
@@ -19,7 +20,7 @@ const routes = [
     name: 'about',
     component: AboutView,
     meta: {
-      title: "Bio" + titleConst
+      title: "About" + titleConst
     }
   },
   {
@@ -29,6 +30,11 @@ const routes = [
     meta: {
       title: "Projects" + titleConst
     }
+  },
+  {
+    path: '/projects/:slug',
+    name: 'project-single',
+    component: SingleProjectView
   },
   {
     path: '/contacts',
@@ -45,7 +51,8 @@ const router = createRouter({
   routes
 });
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title;
+  if(to.meta.title)
+    document.title = to.meta.title;
   next();
 });
 

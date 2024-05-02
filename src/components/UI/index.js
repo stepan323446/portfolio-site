@@ -4,6 +4,8 @@ import VueTyping from '@/components/UI/VueTextTyping';
 import VueSidebarDropdown from '@/components/UI/VueSidebarDropdown';
 import VueContactLinks from '@/components/UI/VueContactLinks';
 import VueSkills from "@/components/UI/VueSkills.vue";
+import VueCheckbox from '@/components/UI/VueCheckbox.vue';
+
 
 export default [
     FontAwesomeIcon,
@@ -11,5 +13,6 @@ export default [
     VueTyping,
     VueSidebarDropdown,
     VueContactLinks,
-    VueSkills
+    VueSkills,
+    VueCheckbox
 ]

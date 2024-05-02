@@ -69,4 +69,9 @@ export default {
 .dropdown-btn.active > svg:first-child {
     transform: rotate(90deg);
 }
+@media only screen and (max-width: 1200px) {
+    .sidebar-dropdown-btn {
+        background: #1E2D3D;
+    }
+}
 </style>

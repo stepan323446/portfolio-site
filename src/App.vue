@@ -132,9 +132,33 @@ body {
     color: var(--text-color);
     padding-right: 40px !important;
 }
-
+.btn {
+    color: var(--btn-font-color);
+    font-weight: 500;
+    font-size: 14px;
+    text-wrap: nowrap;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--btn-bg-color);
+    border: 0;
+    user-select: none;
+    cursor: pointer;
+}
+.btn:hover {
+    color: var(--btn-font-hover-color);
+    background: var(--btn-bg-hover-color);
+}
 .function_ {
     color: #d1ca6d;
+}
+form input, form textarea {
+    color: var(--text-color);
+    width: 100%;
+    font-size: 16px;
+    padding: 10px 15px;
+    background: var(--input-background-color);
+    border: 1px solid var(--borders-color);
+    border-radius: 8px;
 }
 .hljs-attr {
     color: #a7a7a7;
