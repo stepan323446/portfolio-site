@@ -7,13 +7,13 @@
         </template>
         <template v-slot:leftContent>
             <div class="contact-form-container">
-                <form action="" class="contact-form" v-if="!sent">
+                <form action="" class="contact-form" v-on:submit.prevent="sentMessage" v-if="!sent">
                     <p>
                         <label for="id_name">_name:</label> <input v-model="name" type="text" name="name" maxlength="60"
                             required="required" id="id_name">
                     </p>
                     <p>
-                        <label for="id_email">_email:</label> <input v-model="email" type="text" name="email"
+                        <label for="id_email">_email:</label> <input v-model="email" type="email" name="email"
                             maxlength="60" required="required" id="id_email">
                     </p>
                     <p>
@@ -21,12 +21,12 @@
                             rows="10" required="required" id="id_content"></textarea>
                     </p>
 
-                    <button id="contact-submit" type="button" @click="sentMessage" class="btn">submit-message</button>
+                    <button id="contact-submit" type="submit" class="btn">submit-message</button>
                 </form>
                 <div id="contact-success" v-else>
                     <h2>Thank you! 🤘</h2>
                     <div class="text">Your message has been accepted. You will recieve answer really soon!</div> <button
-                        id="contact-new" type="button" class="btn">send-new-message</button>
+                        id="contact-new" type="button" class="btn" @click="replyMessage">send-new-message</button>
                 </div>
             </div>
         </template>
@@ -84,8 +84,14 @@ export default {
     },
     methods: {
         sentMessage() {
-            sent = true;
+            this.sent = true;
             // отправляем данные
+        },
+        replyMessage() {
+            this.sent= false;
+            this.name = "";
+            this.email = "";
+            this.message = "";
         }
     }
 }
