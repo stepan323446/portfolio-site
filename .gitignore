@@ -1,7 +1,21 @@
 .DS_Store
 node_modules
-/dist
+dist/
+.venv/
+.idea/
 
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+media/
+static/
+cache/
+*/migrations/*
+!*/migrations/__init__.py
+db.sqlite3
+*.env
 
 # local env files
 .env.local
