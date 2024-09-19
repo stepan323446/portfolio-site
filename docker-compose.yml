@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  frontend_vue:
+    build: ./frontend_vue
+  
+  backend_dj:
+    build: ./backend_dj

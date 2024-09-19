@@ -2,6 +2,12 @@
 
 The site works in conjunction with Django + Vue 3 (Option API).
 
+* [Docker setup](#docker-setup)
+* [Manually website setup](#manually-website-setup)
+    * [Backend (Django)](#backend-django)
+    * [Frontend (Vue)](#frontend-vue)
+* [Telegram bot setup](#telegram-bot-setup)
+
 ## Docker setup
 soon
 
@@ -25,7 +31,7 @@ and copy new secret key in the new file `.env`
 SECRET_KEY={Your secret key}
 ```
 
-3. Setup your database in the `settings.py`. Default is `db.sqlite`:
+3. Setup your database in the `settings.py`. Default is `db.sqlite3`:
 ```py
 DATABASES = {
     'default': {
@@ -75,3 +81,11 @@ or Build frontend part of website
 ```
 npm run build
 ```
+## Telegram bot setup
+
+The website supports sending messages to the Telegram messenger as a notification of a message. Go to the django admin panel and create a new object in the `Telegram bots` tab.
+
+for a bot, you need to:
+
+* Telegram bot token
+* Your chat id with bot (you can get it using api `https://api.telegram.org/bot<token>/getUpdates`)
