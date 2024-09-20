@@ -100,23 +100,6 @@ export default {
     overflow: auto;
 }
 
-.sidebar>>>a {
-    text-transform: lowercase;
-    color: var(--text-color);
-}
-
-.sidebar>>>a path {
-    fill: var(--text-color);
-}
-
-.sidebar>>>a:hover {
-    color: var(--active-text-color);
-}
-
-.sidebar>>>a:hover path {
-    fill: var(--active-text-color);
-}
-
 .content-page {
     display: flex;
     height: calc(100vh - 53px - 50px);

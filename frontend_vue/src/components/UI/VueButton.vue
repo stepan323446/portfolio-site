@@ -3,7 +3,7 @@
         <slot></slot>
     </RouterLink>
     
-    <a v-else-if="href" :href="href">
+    <a v-else-if="href" :href="href" class="btn">
         <slot></slot>
     </a>
 
@@ -37,6 +37,7 @@ export default {
     font-weight: 500;
     font-size: 14px;
     text-wrap: nowrap;
+    text-align: center;
     padding: 10px 14px;
     border-radius: 8px;
     background: var(--btn-bg-color);

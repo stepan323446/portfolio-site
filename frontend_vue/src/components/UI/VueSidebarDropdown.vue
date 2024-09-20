@@ -50,13 +50,6 @@ export default {
     cursor: pointer;
     user-select: none;
 }
-.sidebar a {
-    text-transform: lowercase;
-    color: var(--text-color);
-}
-.sidebar a:hover {
-    color: var(--active-text-color);
-}
 .dropdown:first-child .sidebar-dropdown-btn {
     border-top: 0;   
 }

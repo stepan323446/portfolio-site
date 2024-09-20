@@ -31,9 +31,7 @@ class Skill(models.Model):
 class PrimaryBio(models.Model):
     photo   = models.FileField(upload_to='files/')
     description = RichTextUploadingField()
-
-    def __str__(self) -> str:
-        return self.description
+    url_resume = models.URLField(null=True, blank=True)
     
 class Contact(models.Model):
     name    = models.CharField(max_length=100)

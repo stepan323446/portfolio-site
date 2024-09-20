@@ -5,7 +5,8 @@
                 <div v-if="primaryInfo.photo" class="primary-photo image image-cover">
                     <img :src="primaryInfo.photo" alt="">
                 </div>
-                <div class="content" v-html="primaryInfo.description"></div>
+                <div class="content primary-info__content" v-html="primaryInfo.description"></div>
+                <VueButton v-if="primaryInfo.url_resume" :href="primaryInfo.url_resume" target="_blank" class="btn-primary primary-info__btn">Check Resume</VueButton>
             </VueSidebarDropdown>
 
             <VueSidebarDropdown title="contacts">
@@ -24,12 +25,14 @@ import VueFolder from '@/components/UI/VueFolder.vue';
 import VueFile from '@/components/UI/VueFile.vue';
 import VueFileContent from '@/components/UI/VueFileConent.vue';
 
+
 import axios from "axios";
+import VueButton from '@/components/UI/VueButton.vue';
 
 export default {
     name: 'AboutPage',
     components: {
-        VueFileManager, VueFolder, VueFile, VueFileContent
+        VueFileManager, VueFolder, VueFile, VueFileContent, VueButton
     },
     data() {
         return {
@@ -88,5 +91,13 @@ export default {
 .content >>> p {
     font-size: 16px;
     line-height: 20px;
+}
+.primary-info__content {
+    margin-bottom: 15px;
+}
+.primary-info__btn {
+    display: block;
+    width: 100%;
+    max-width: 200px;
 }
 </style>
