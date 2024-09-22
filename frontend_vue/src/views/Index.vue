@@ -81,9 +81,12 @@ export default {
 }
 
 .index-info {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    
+    z-index: 2;
 }
 
 #who-i {
