@@ -3,6 +3,7 @@ import IndexView from '@/views/Index'
 import ProjectsView from '@/views/Projects'
 import ContactView from '@/views/Contact'
 import AboutView from '@/views/About.vue'
+import NotFoundPage from '@/views/NotFoundPage.vue'
 
 export const titleConst = " - Stepan Turitsin";
 const routes = [
@@ -38,6 +39,14 @@ const routes = [
       title: "Contact me" + titleConst
     }
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: NotFoundPage,
+    meta: {
+      title: "Page not found" + titleConst
+    }
+  }
 ]
 
 const router = createRouter({
