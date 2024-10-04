@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.http import HttpRequest
+from django.http import HttpResponseBadRequest
+from django.shortcuts import render, redirect
 from rest_framework import generics as rest_generics
 from .models import *
 from .serializers import *
@@ -16,4 +18,9 @@ class ProjectView(rest_generics.RetrieveAPIView):
     lookup_field = 'slug'
     lookup_url_kwarg = 'slug'
 
-
+def redirect_view(request: HttpRequest, name: str):
+    try:
+        redirect_obj = Redirect.objects.get(name=name)
+        return redirect(redirect_obj.url)
+    except:
+        raise HttpResponseBadRequest('Redirect name not found')

@@ -24,3 +24,10 @@ class Project(models.Model):
 
     def __str__(self):
        return self.title
+    
+class Redirect(models.Model):
+    name        = models.CharField(max_length=150)
+    url         = models.URLField()
+
+    def __str__(self) -> str:
+        return self.name
