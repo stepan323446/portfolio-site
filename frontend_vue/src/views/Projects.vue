@@ -47,7 +47,9 @@ export default {
             for (const project of this.projects) {
                 let isIncluded = true;
                 for (const filterID of this.activeFilters) {
-                    if (!project.skills.includes(filterID)) {
+                    if (!project.skills.some(skill => skill.id == filterID)) {
+                        console.log(project);
+                        console.log(filterID)
                         isIncluded = false;
                         break;
                     }
