@@ -17,12 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
+from projects.views import redirect_view, RedirectAllView
 from .settings import MEDIA_ROOT, MEDIA_URL, DEBUG
 
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
     path('admin/', admin.site.urls),
+    path('redirect/', RedirectAllView.as_view(), name='redirect-index'),
+    path('redirect/<str:name>', redirect_view),
+
     path('api/v1/projects/', include('projects.urls')),
     path('api/v1/bio/', include('biography.urls')),
     path('api/v1/feedback/', include('feedback.urls')),

@@ -10,7 +10,7 @@ dist/
 *.pyc
 __pycache__
 media/
-static/
+backend_dj/static/
 cache/
 */migrations/*
 !*/migrations/__init__.py

@@ -7,7 +7,7 @@ import axios from 'axios'
 
 import VueHighlightJS from 'vue3-highlightjs'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000';
+axios.defaults.baseURL = 'https://steve-dekart.xyz';
 
 const app = createApp(App)
 
