@@ -212,8 +212,12 @@ export default {
         gap: 30px;
     }
 
+    .content-split {
+        flex-direction: column;
+    }
     .content-split>.left,
     .content-split>.right {
+        width: 100%;
         padding: 20px 14px;
     }
 }

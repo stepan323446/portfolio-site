@@ -5,8 +5,8 @@
                 <img :src="`${expierence.icon}`" alt="">
             </div>
             <div class="exp-header__info">
-                <h2>## {{ expierence.name }}</h2>
-                <div class="company">{{ expierence.company }}</div>
+                <h2>## {{ expierence.company }}</h2>
+                <div class="company">{{ expierence.name }}</div>
                 <div class="date">{{ getJobDate(expierence.time_start) }} - {{ getJobDate(expierence.time_end) }}</div>
             </div>
         </div>

@@ -22,11 +22,13 @@
                 <h2>## Skills</h2>
                 <VueSkills :skills="project.skills"></VueSkills>
 
+                <h2 v-if="project.contributors.length > 1">## Contributors</h2>
+                <VueContributors v-if="project.contributors.length > 1" :contributors="project.contributors" />
+
                 <div class="btns">
                     <a v-if="project.code_url" :href="project.code_url" target="_blank">view code</a> |
                     <a v-if="project.run_url" :href="project.run_url" target="_blank">run</a>
                 </div>
-
             </div>
         </div>
     </div>
@@ -37,10 +39,11 @@
 import VueFileManager from '@/components/UI/VueFileManager.vue';
 import VueContactLinks from '@/components/UI/VueContactLinks.vue';
 import { faClose, faL } from '@fortawesome/free-solid-svg-icons';
+import VueContributors from '@/components/UI/VueContributors.vue';
 
 export default {
     name: 'VueProjectSingle',
-    components: { VueFileManager, VueContactLinks },
+    components: { VueFileManager, VueContactLinks, VueContributors },
     props: {
         project: {
             type: Object,

@@ -5,6 +5,7 @@ import VueSidebarDropdown from '@/components/UI/VueSidebarDropdown';
 import VueContactLinks from '@/components/UI/VueContactLinks';
 import VueSkills from "@/components/UI/VueSkills.vue";
 import VueCheckbox from '@/components/UI/VueCheckbox.vue';
+import Avatar from '@/components/UI/Avatar.vue';
 
 
 export default [
@@ -14,5 +15,6 @@ export default [
     VueSidebarDropdown,
     VueContactLinks,
     VueSkills,
-    VueCheckbox
+    VueCheckbox,
+    Avatar
 ]

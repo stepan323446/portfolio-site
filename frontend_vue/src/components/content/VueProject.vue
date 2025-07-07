@@ -9,6 +9,13 @@
                 <span :style="{ background: project.primary_skill.background }"><span class="skill-icon"
                         v-html="project.primary_skill.icon_svg"></span></span>
 
+                <div v-if="project.contributors.length > 1" class="contributors">
+                    <Avatar 
+                        v-for="contrib in reverseContributors"
+                        :key="contrib.id"
+                        :url="contrib.avatar" />
+                </div>
+
             </div>
             <div class="project-info">
                 <div class="text">
@@ -26,6 +33,11 @@ export default {
     data() {    
         return {
 
+        }
+    },
+    computed: {
+        reverseContributors() {
+            return this.$props.project.contributors.reverse()
         }
     },
     props: {
@@ -133,5 +145,18 @@ export default {
 }
 .project .image .skill-icon >>> path {
     fill: #000;
+}
+.contributors {
+    position: absolute;
+    left: 20px;
+    bottom: -10px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.contributors >>> .avatar {
+    transform: translateX(-10px);
+}
+.contributors >>> .avatar:last-child {
+    transform: translate(0);
 }
 </style>
