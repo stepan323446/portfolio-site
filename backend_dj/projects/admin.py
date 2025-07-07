@@ -7,3 +7,4 @@ class ProjectAdmin(admin.ModelAdmin):
 
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Redirect)
+admin.site.register(Contributor)

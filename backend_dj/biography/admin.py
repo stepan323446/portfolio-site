@@ -40,13 +40,16 @@ class ContactAdmin(admin.ModelAdmin):
     
     get_svg_icon.short_description = 'SVG Icon'
 
+class JobAdmin(admin.ModelAdmin):
+    list_display = ('company', 'name')
+
 class EducationAdmin(admin.ModelAdmin):
     list_display = ('name', 'subname', 'time_start', 'time_end')
 
 # Register your models here.
 admin.site.register(SkillCategory)
 admin.site.register(Skill, SkillAdmin)
-admin.site.register(Job)
+admin.site.register(Job, JobAdmin)
 admin.site.register(FolderModel)
 admin.site.register(FileModel, FileAdmin)
 admin.site.register(Education, EducationAdmin)

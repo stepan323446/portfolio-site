@@ -4,6 +4,15 @@ from django.urls import reverse
 from biography.models import Skill
 
 # Create your models here.
+class Contributor(models.Model):
+    name        = models.CharField(max_length=150)
+    url         = models.CharField(max_length=150)
+    description = models.CharField(max_length=255)
+    avatar      = models.ImageField(upload_to="uploads/")
+
+    def __str__(self):
+        return self.name
+
 class Project(models.Model):
     title       = models.CharField(max_length=150, verbose_name="Title")
     slug        = models.SlugField(max_length=150, db_index=True, unique=True, verbose_name="Slug")
@@ -17,6 +26,8 @@ class Project(models.Model):
 
     code_url    = models.CharField(max_length=150, null=True, blank=True, verbose_name="View code URL")
     run_url     = models.CharField(max_length=150, null=True, blank=True, verbose_name="Run URL")
+
+    contributors = models.ManyToManyField(Contributor, blank=True)
 
     @property
     def get_photo_url(self):

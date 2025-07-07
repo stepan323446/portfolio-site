@@ -40,13 +40,18 @@ class ContactSerializer(serializers.ModelSerializer):
 # Post
 class FileSerializer(serializers.ModelSerializer):
     cats = SkillCategorySerializer(many=True, read_only=True)
-    jobs = JobSerializer(many=True, read_only=True)
     projects = ProjectSerializer(many=True, read_only=True)
     educations = EducationSerializer(many=True, read_only=True)
+
+    jobs = serializers.SerializerMethodField()
 
     class Meta:
         model = FileModel
         fields = '__all__'
+
+    def get_jobs(self, obj):
+        jobs = obj.jobs.all().order_by('-time_start')
+        return JobSerializer(jobs, many=True, context=self.context).data
 
 # Sidebar
 class FileListSerializer(serializers.ModelSerializer):
